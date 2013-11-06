@@ -714,17 +714,15 @@ and (min-width : 901px) {
 
 #main_content_section_mag {
 	float:left;
-	width:56%;
-	overflow:auto;	
-	margin:25px 0 25px 3%;
+	width:90%;
+	overflow:auto;
 	padding:15px 0;
 	background:#3C3C3C;
 }
 
 #main_content_section {
 	float:left;
-	width:56%;
-	margin:25px 0 25px 3%;
+	width:90%;
 	background:#3C3C3C;	
 }
 

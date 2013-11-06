@@ -7,10 +7,19 @@
 	
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?> " type="text/css" media="all" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-
-
+   
     
-	<?php wp_head(); ?>
+    <?php
+    include_once('./functions.php');
+
+    // Destro_browser_body_class();
+    global $is_NS4, $is_gecko;
+    if ($is_NS4 || $is_gecko) {
+        wp_enqueue_style('Destro_aquastyle_NS', '/wp-content/themes/destro/liteNS4.css');
+    }
+    
+    ?>
+	 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -97,10 +106,6 @@
                                 <p class="logo_desc"><?php bloginfo('description'); ?></p>
 
                             </div>
-                            
-                            <div id="logo_search_count">
-                                <?php get_search_form(); ?>
-                           </div>
             
                 </div>	
                 <!-- Logo Section ends here -->	                 			
@@ -115,7 +120,11 @@
                     <!-- Menu Section starts here -->
                     
             			<div id="menu">
-							<?php wp_nav_menu( array( 'theme_location' => 'mainmenu', 'menu_class' => 'dropdown dropdown-horizontal','fallback_cb'     => 'Destro_backupmenu', 'menu_id'=>'Main_nav', 'container'=>'') ); ?>			
+							<?php wp_nav_menu( array( 'theme_location' => 'mainmenu', 'menu_class' => 'dropdown dropdown-horizontal','fallback_cb'     => 'Destro_backupmenu', 'menu_id'=>'Main_nav', 'container'=>'') ); ?>
+
+                            <div id="logo_search_count">
+                                <?php get_search_form(); ?>
+                           </div>
                         </div>
  
 

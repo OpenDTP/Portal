@@ -242,6 +242,7 @@ function Destro_browser_body_class($classes) {
  * Add StyleSheets
  */
 function Destro_add_stylesheets( ) {
+	global $is_Destro, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 	
 	if( !is_admin() ) {
 
@@ -255,9 +256,6 @@ function Destro_add_stylesheets( ) {
 html .jquerycssmenu{height: 1%;} /*Holly Hack for IE7 and below*/
 </style>
 <![endif]--> ';
-
-								wp_enqueue_style('Destro_wilto', get_stylesheet_directory_uri().'/css/wilto.css');
-									
 								if( of_get_option('skin_style') == 'destro' ) {
 									wp_enqueue_style('Destro_destrostyle', get_template_directory_uri().'/destro.css');	
 									wp_enqueue_style('Destro_destroResponsive', get_template_directory_uri().'/destroresponsive.css');	
@@ -322,9 +320,14 @@ html .jquerycssmenu{height: 1%;} /*Holly Hack for IE7 and below*/
 									wp_enqueue_style('Destro_aquaResponsive', get_template_directory_uri().'/responsive.css');
 									wp_enqueue_style('Destro_aquacolors', get_template_directory_uri().'/blbr.css');
 								}elseif( of_get_option('skin_style') == 'brow' ) {
-									wp_enqueue_style('Destro_aquastyle', get_template_directory_uri().'/lite.css');
+									if ($is_NS4 || $is_gecko){
+										wp_enqueue_style('Destro_aquastyle', get_stylesheet_directory_uri().'/liteNS4.css');
+									} else {
+										wp_enqueue_style('Destro_aquastyle', get_template_directory_uri().'/lite.css');
+									}
 									wp_enqueue_style('Destro_aquaResponsive', get_template_directory_uri().'/responsive.css');
 									wp_enqueue_style('Destro_aquacolors', get_template_directory_uri().'/brow.css');
+
 								}elseif( of_get_option('skin_style') == 'yrst' ) {
 									wp_enqueue_style('Destro_aquastyle', get_template_directory_uri().'/lite.css');
 									wp_enqueue_style('Destro_aquaResponsive', get_template_directory_uri().'/responsive.css');
@@ -348,7 +351,9 @@ html .jquerycssmenu{height: 1%;} /*Holly Hack for IE7 and below*/
 								}else {
 									wp_enqueue_style('Destro_Defaultstyle', get_stylesheet_directory_uri().'/lite.css');
 									wp_enqueue_style('Destro_Defaultresponsive', get_stylesheet_directory_uri().'/responsive.css');
-								}									
+								}	
+
+
 										
 
 	}
