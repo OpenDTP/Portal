@@ -13,6 +13,8 @@ $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
 $this->language = $doc->language;
 $this->direction = $doc->direction;
+$template = JFactory::getApplication()->getTemplate();
+$templatePath = JURI::root() . 'templates/' . $template;
 
 $option   = $app->input->getCmd('option', '');
 $view     = $app->input->getCmd('view', '');
@@ -54,6 +56,19 @@ else
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <jdoc:include type="head" />
+    <?php
+    if ($this->params->get('googleFont'))
+	{
+	?>
+		<link href='//fonts.googleapis.com/css?family=<?php echo $this->params->get('googleFontName');?>' rel='stylesheet' type='text/css' />
+		<style type="text/css">
+			h1,h2,h3,h4,h5,h6,.site-title{
+				font-family: '<?php echo str_replace('+', ' ', $this->params->get('googleFontName'));?>', sans-serif;
+			}
+		</style>
+	<?php
+	}
+    ?>
 </head>
 <body class="site <?php echo $option
 	. ' view-' . $view
@@ -67,18 +82,20 @@ else
         <div class="col-md-12">
             <div class="row" id ="header">
                 <div id="logo-events" class="col-md-12" role="banner">
-                    <h1 class="logo"><a href="/" title="OpenDTP">OpenDTP</a></h2>
+                    <h1 class="logo"><a href="./" title="OpenDTP"><img id="logo" src="<?php echo $templatePath;?>/images/logo.png" /></a></h1>
                 </div>
             </div>
             <div class="wrapper">
                 <?php if ($this->countModules('position-1')) : ?>
-                <nav class="row navigation white" role="navigation">
-                    <div class="col-md-9" >
-                        <jdoc:include type="modules" name="position-1" style="none" />
-                    </div>
-                    <div id="searchbox" class="col-md-3" >
-                        <jdoc:include type="modules" name="position-0" style="none" />
-                    </div>
+                <nav class="row navigation" role="navigation">
+                    <div class="col-md-12 bwhite">
+                        <div class="col-md-9" >
+                            <jdoc:include type="modules" name="position-1" style="none" />
+                        </div>
+                        <div id="searchbox" class="col-md-3" >
+                            <jdoc:include type="modules" name="position-0" style="none" />
+                        </div>
+                    <div>
                 </nav>
                 <?php endif; ?>
                 <?php if ($this->countModules('position-3')) : ?>

@@ -43,16 +43,19 @@ ul, ol {
 
 ul.menu {
     margin: 0;
+    z-index:1;
 }
 
 ul.menu li {
     list-style: none;
+    z-index:1;
 }
 ul.nav.menu{
     padding : 5px;
     border-radius: 5px;
     /* background: #e1e1e1; */
     margin-bottom: 10px;
+    z-index:1;
 }
 
 p {
@@ -149,6 +152,9 @@ img {
 	width: 100%;
     height:auto;
 }
+img#logo{
+    width: 25%;
+}
 
 .rounded {
     -moz-border-radius: 5px;
@@ -177,7 +183,6 @@ img {
     background: #e1e1e1;
     margin-bottom: 10px;
 }
-
 /* .white {
     background: #e1e1e1;
 	background-image: url("white-gradient.svg");
@@ -198,11 +203,22 @@ nav.navigation li.active a:hover,
 nav.navigation li a:hover {
 	background: none;
 	-webkit-box-shadow: inset 0 0 5px rgba(0,0,255, 0.4), rgba(255,255,255,0.1) 0 1px 0;
-	box-shadow: inset 0 0 5px rgba(0,0,255, 0.6), rgba(255,255,255,0.1) 0 1px 0;
+	box-shadow: inset 0 0 5px rgba(0,0,0, 0.4), rgba(255,255,255,0.1) 0 1px 0;
 	border-radius: 4px;
 	border: 1px solid rgba(0,0,255,0.25);
-	color: #000;
+    color: #000;
 	text-shadow: rgba(0, 0, 0, 0.796875) 0px -1px 0px, rgba(255, 255, 255, 0.296875) 0px 0px 10px;
+    z-index:1;
+}
+.bwhite:after{
+	background-color: #e1e1e1;
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    right: 15px;
+    bottom: 0px;
+    z-index: 0;
 }
 
 .main {
@@ -213,7 +229,7 @@ nav.navigation li a:hover {
 
 #header{
     margin-top: -5px;
-    padding-top: 40px;
+    padding-top: 20px;
     background: #428bca;
     margin-left: 10px;
     margin-right: 10px;
@@ -235,6 +251,7 @@ nav.navigation li a:hover {
 
 #searchbox{
     padding-top: 17px;
+    z-index:10;
 }
 code,
 pre {
