@@ -1,322 +1,133 @@
-html {
-  height: 101%;
-}
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
 
 body {
-  margin: 0;
-  padding: 0;
+  padding-bottom: 40px;
+  color: #5a5a5a;
 }
 
-* {
-    padding: 0;
-    margin: 0;
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  padding: 3px 0;
-  margin: 0;
-  line-height: 1.2;
-  font-weight: bold;
-  font-style: normal;
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-h1 {
-  font-size: 1.75em;
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
 }
 
-h2 {
-  font-size: 1.5em;
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
 }
 
-h3 {
-  font-size: 1.25em;
+/* featured
+------------------------- */
+
+.featured-divider {
+  margin: 30px 0; /* Space out the Bootstrap <hr> more */
 }
 
-h4 {
-  font-size: 1em;
+/* Thin out the marketing headings */
+.featured-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
 }
 
-ul, ol {
-  padding: .75em 0 .75em 0;
-  margin: 0 0 0 35px;
+/* article
+------------------------- */
+
+.article {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-ul.menu {
-    margin: 0;
-    z-index:1;
+.readmore {
+    float:left;
 }
 
-ul.menu li {
-    list-style: none;
-    z-index:1;
-}
-ul.nav.menu{
-    padding : 5px;
-    border-radius: 5px;
-    /* background: #e1e1e1; */
-    margin-bottom: 10px;
-    z-index:1;
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+    /* Remove padding for mobile */
+    .article {
+        padding-right: 0;
+        padding-left: 0;
+    }
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left:  15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left:  0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featured-heading {
+    font-size: 50px;
+  }
 }
 
-p {
-  padding: 5px 0;
-}
-
-address {
-  margin: .75em 0;
-  font-style: normal;
-}
-
-a:focus {
-    outline: none;
-}
-
-img {
-  border: none;
-}
-
-em {
-  font-style: italic;
-}
-strong {
-  font-weight: bold;
-}
-
-form, fieldset {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-input, button, select {
-  vertical-align: middle;
-}
-
-.clr {
-	clear : both;
-}
-
-.clearfix:after {
-    content: " "; 
-	display: block; 
-	height: 0; 
-	clear: both; 
-	visibility: hidden; 
-	font-size: 0;
-}
-
-.clearfix {
-	zoom: 1;
-}
-
-body {
-	background: #428bca;
-	color: #2b2b2b;
-	text-align: left;
-	line-height: 20px;
-	font-size: 12px;
-	font-family: Segoe UI, sans-serif;
-}
-
-a, a:visited {
-	color: #036c9e;
-}
-
-a:hover {
-	color: #000;
-	text-decoration: underline;
-}
-
-h1 {
-	color: #036c9e;
-	text-align: left;
-	letter-spacing: -1px;
-	line-height: 25px;
-	font-size: 22px;
-}
-
-h2 {
-	color: #036c9e;
-	text-align: left;
-	font-size: 20px;
-}
-
-h2 a {
-    text-decoration: none;
-}
-
-h2 a:hover {
-	color: #036c9e;
-}
-
-img {
-	width: 100%;
-    height:auto;
-}
-img#logo{
-    width: 25%;
-}
-
-.rounded {
-    -moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-.wrapper{
-    padding: 0 13px;
-    border-radius: 5px;
-    border: #eee 2px solid;
-    box-shadow: #545454 0px 2px 2px 0px;
-	-moz-box-shadow: #545454 0px 2px 2px 0px;
-	-webkit-box-shadow: #545454 0px 2px 2px 0px;
-    background: #eee;
-}
-.items-leading{
-    padding : 5px;
-    border-radius: 5px;
-    background: #e1e1e1;
-    margin-bottom: 10px;
-}
-.item {
-    padding : 5px;
-    border-radius: 5px;
-    background: #e1e1e1;
-    margin-bottom: 10px;
-}
-/* .white {
-    background: #e1e1e1;
-	background-image: url("white-gradient.svg");
-	background-image: -o-linear-gradient(center top,#ffffff,#ffffff 40%, #e1e1e1 100%);
-	background-image: -webkit-gradient(linear, left top, left bottom,from(#ffffff),color-stop(40%,#ffffff), color-stop(100%, #e1e1e1));
-	background-image: -moz-linear-gradient(center top,#ffffff,#ffffff 40%, #e1e1e1 100%);
-	background-image: linear-gradient(center top,#ffffff,#ffffff 40%, #e1e1e1 100%);
-	-pie-background: linear-gradient(center top,#ffffff,#ffffff 40%, #e1e1e1 100%);
-	border: #ffffff 1px solid;
-    box-shadow: #545454 0px 1px 1px 0px;
-	-moz-box-shadow: #545454 0px 1px 1px 0px;
-	-webkit-box-shadow: #545454 0px 1px 1px 0px;
-    border: #eee 1px solid;
-} */
-
-nav.navigation li.active a,
-nav.navigation li.active a:hover,
-nav.navigation li a:hover {
-	background: none;
-	-webkit-box-shadow: inset 0 0 5px rgba(0,0,255, 0.4), rgba(255,255,255,0.1) 0 1px 0;
-	box-shadow: inset 0 0 5px rgba(0,0,0, 0.4), rgba(255,255,255,0.1) 0 1px 0;
-	border-radius: 4px;
-	border: 1px solid rgba(0,0,255,0.25);
-    color: #000;
-	text-shadow: rgba(0, 0, 0, 0.796875) 0px -1px 0px, rgba(255, 255, 255, 0.296875) 0px 0px 10px;
-    z-index:1;
-}
-.bwhite:after{
-	background-color: #e1e1e1;
-    content: '';
-    position: absolute;
-    top: 0px;
-    left: 15px;
-    right: 15px;
-    bottom: 0px;
-    z-index: 0;
-}
-
-.main {
-	max-width: 1240px;
-	margin: 0 auto;
-    padding: 0 20px;
-}
-
-#header{
-    margin-top: -5px;
-    padding-top: 20px;
-    background: #428bca;
-    margin-left: 10px;
-    margin-right: 10px;
-    position: relative;
-}
-
-#footer{
-    
-}
-
-#logo-events {
-    clear: both;
-    padding-top: 25px;
-    padding-bottom: 20px;
-}
-.sidebar-right li[class^="item"]{
-    background: #e1e1e1;
-}
-
-#searchbox{
-    padding-top: 17px;
-    z-index:10;
-}
-code,
-pre {
-	padding: 0 3px 2px;
-	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-	font-size: 11px;
-	color: #333;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-code {
-	padding: 2px 4px;
-	color: #d14;
-	background-color: #f7f7f9;
-	border: 1px solid #e1e1e8;
-	white-space: nowrap;
-}
-pre {
-	display: block;
-	padding: 8.5px;
-	margin: 0 0 9px;
-	font-size: 12px;
-	line-height: 18px;
-	word-break: break-all;
-	word-wrap: break-word;
-	white-space: pre;
-	white-space: pre-wrap;
-	background-color: #f5f5f5;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0,0,0,0.15);
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
-pre.prettyprint {
-	margin-bottom: 18px;
-}
-pre code {
-	padding: 0;
-	color: inherit;
-	white-space: pre;
-	white-space: pre-wrap;
-	background-color: transparent;
-	border: 0;
-}
-.element-invisible {
-	position: absolute;
-	padding: 0;
-	margin: 0;
-	border: 0;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-}
-.well {
-	min-height: 20px;
-	padding: 19px;
-	margin-bottom: 20px;
-	background-color: #f5f5f5;
-	border: 1px solid #e3e3e3;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+@media (min-width: 992px) {
+  .featured-heading {
+    margin-top: 10px;
+  }
 }
