@@ -54,7 +54,6 @@ if ($currentPage >= $step)
 			<?php echo JText::_('JGLOBAL_DISPLAY_NUM') . $list['limitfield']; ?>
 		</div>
 	<?php endif; ?>
-
 	<?php if ($showPagesLinks && (!empty($pages))) : ?>
 		<ul class="pagination-list">
 			<?php

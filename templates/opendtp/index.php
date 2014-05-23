@@ -76,7 +76,7 @@ else
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">OpenDTP</a>
+                    <a class="navbar-brand" href="./"><img src="<?php echo $templatePath; ?>/images/logoopendtp-min.png" ></img></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <jdoc:include type="modules" name="position-1" style="none" />
@@ -86,6 +86,7 @@ else
     </div>
     <?php endif; ?>
     
+    <?php if(JRequest::getVar('view') == "featured" ) : ?>
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -128,21 +129,24 @@ else
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->
-    
-    <?php // Carousel
-        if ($this->countModules('position-3') && false) : ?>
-        <div class="row slideshow">
-           <?php /* <div class="col-md-12">
-            <jdoc:include type="modules" name="position-3" style="xhtml" />
-            </div> */?>
+    <?php else: ?>
+        <div id="blank_menu" class="row">
+            
         </div>
     <?php endif; ?>
+    <?php /*if ($this->countModules('position-3') && false) : ?>
+        <?php <div class="row slideshow">
+            <div class="col-md-12">
+            <jdoc:include type="modules" name="position-3" style="xhtml" />
+            </div> 
+        </div>?>
+    <?php endif; */?>
     <div class="container article">
         <div class="wrapper">
-            
-            <jdoc:include type="message" />
+           <?php /* <jdoc:include type="message" />  */?>
             <jdoc:include type="component" />
-            <!--<jdoc:include type="modules" name="position-2" style="none" />-->
+            
+            <?php /* <jdoc:include type="modules" name="position-2" style="none" /> */ ?>
         </div>
         <?php if ($this->countModules('position-3')) : ?>
         <div id="footer" class="row">
@@ -151,6 +155,6 @@ else
             </div>
         </div>
         <?php endif; ?>
-        <!--<jdoc:include type="modules" name="debug" style="none" />-->
+        <?php /* <jdoc:include type="modules" name="debug" style="none" /> */ ?>
     </div>
 </body>

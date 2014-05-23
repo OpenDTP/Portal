@@ -84,6 +84,12 @@ body {
     float:left;
 }
 
+#blank_menu {
+    margin-top: 100px;
+}
+.navbar-brand img{
+    margin-top:-14px;
+}
 
 
 /* RESPONSIVE CSS
