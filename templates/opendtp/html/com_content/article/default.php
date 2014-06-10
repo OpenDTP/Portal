@@ -91,7 +91,7 @@ if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->
 	<?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
 		<div class="article-info muted">
 			<dl class="article-info">
-			<dt class="article-info-term"><?php echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></dt>
+			<dt class="article-info-term"><?php /* echo JText::_('COM_CONTENT_ARTICLE_INFO'); */ ?></dt>
 
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
 				<dd class="createdby">
@@ -103,7 +103,7 @@ if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->
 					<?php endif; ?>
 				</dd>
 			<?php endif; ?>
-			<?php if ($params->get('show_parent_category') && !empty($this->item->parent_slug)) : ?>
+			<?php /* if ($params->get('show_parent_category') && !empty($this->item->parent_slug)) : ?>
 				<dd class="parent-category-name">
 					<?php $title = $this->escape($this->item->parent_title);
 					$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
@@ -149,7 +149,7 @@ if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->
 						<span class="icon-eye-open"></span> <?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
 					</dd>
 				<?php endif; ?>
-			<?php endif; ?>
+			<?php endif; */ ?>
 			</dl>
 		</div>
 	<?php endif; ?>

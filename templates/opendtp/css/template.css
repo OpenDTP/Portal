@@ -91,10 +91,25 @@ body {
     margin-top:-14px;
 }
 
+/* 
+** FONT
+*/
 
+@font-face {
+    font-family: 'glyphicons_halflingsregular'; /*a name to be used later*/
+    src: url('./fonts/glyphicons-halflings-regular.ttf'); /*URL to font*/
+}
+p{
+    font-family: glyphicons_halflingsregular;
+    font-size: 1.5em;
+}
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
+@media (min-width: 1200px) {
+    .container {
+        width: 1400px;
+    }
+}
 @media (min-width: 768px) {
 
     /* Remove padding for mobile */
