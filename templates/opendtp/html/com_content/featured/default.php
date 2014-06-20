@@ -15,74 +15,19 @@ JHtml::_('behavior.caption');
 
 // If the page class is defined, add to class as suffix.
 // It will be a separate class if the user starts it with a space
-?>
-<div class="blog-featured<?php echo $this->pageclass_sfx;?>">
 
-<?php $leadingcount = 0; ?>
-<?php if (!empty($this->lead_items)) : ?>
-<div class="featured clearfix">
-	<?php foreach ($this->lead_items as &$item) : ?>
-        <hr class="featured-divider">
-		<div class="row leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?> clearfix">
-			<?php
-				$this->item = &$item;
-				echo $this->loadTemplate('item');
-			?>
-		</div>
-		<?php
-			$leadingcount++;
-		?>
-	<?php endforeach; ?>
-</div>
-<?php endif; ?>
-<?php
 	$introcount = (count($this->intro_items));
 	$counter = 0;
 ?>
 <?php if (!empty($this->intro_items)) : ?>
 	<?php foreach ($this->intro_items as $key => &$item) : ?>
-
-		<?php
-		$key = ($key - $leadingcount) + 1;
-		$rowcount = (((int) $key - 1) % (int) $this->columns) + 1;
-		$row = $counter / $this->columns;
-
-		if ($rowcount == 1) : ?>
-		<div class="row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row; ?> row-fluid">
-		<?php endif; ?>
-            <hr class="featured-divider">
-			<div class="row column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?> span<?php echo round((12 / $this->columns));?>">
-			<?php
-					$this->item = &$item;
-					echo $this->loadTemplate('item');
-			?>
-			</div>
-			<?php $counter++; ?>
-
-			<?php if (($rowcount == $this->columns) or ($counter == $introcount)) : ?>
-
-		</div>
-		<?php endif; ?>
-
+    <div class="item" >
+        <div class="container">
+            <div class="carousel-caption">
+                <?php $this->item = &$item;
+                echo $this->loadTemplate('item'); ?>
+            </div>
+        </div>
+    </div>
 	<?php endforeach; ?>
 <?php endif; ?>
-
-<?php if (!empty($this->link_items)) : ?>
-	<div class="items-more">
-	<?php echo $this->loadTemplate('links'); ?>
-	</div>
-<?php endif; ?>
-
-<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->pagesTotal > 1)) : ?>
-	<div class="pagination">
-		<?php /* if ($this->params->def('show_pagination_results', 1)) : ?>
-			<p class="counter pull-right">
-				<?php echo $this->pagination->getPagesCounter(); ?>
-			</p>
-		<?php  endif;  */?>
-				<?php echo $this->pagination->getPagesLinks(); ?>
-                
-	</div>
-<?php endif; ?>
-
-</div>

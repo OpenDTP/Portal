@@ -90,49 +90,25 @@ else
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
       <div class="carousel-inner">
         <div class="item active">
           <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" >
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <h1>Bienvenue sur OpenDTP</h1>
+              <p> Publier intelligemment avec OpenDTP</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Enregistrez-vous dés maintenant</a></p>
+              <p class="row"><br /></p>
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <jdoc:include type="component" />
+       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->
     <?php else: ?>
-        <div id="blank_menu" class="row">
-            
-        </div>
+        <div id="blank_menu" class="row"></div>
     <?php endif; ?>
     <?php /*if ($this->countModules('position-3') && false) : ?>
         <?php <div class="row slideshow">
@@ -142,12 +118,30 @@ else
         </div>?>
     <?php endif; */?>
     <div class="container article">
-        <div class="wrapper">
-           <?php /* <jdoc:include type="message" />  */?>
-            <jdoc:include type="component" />
+        
+            <?php if(JRequest::getVar('view') == "featured" ) : ?>
+            <hr class="featured-divider">
+            <div class="jumbotron" >
+                <div class=".col-xs-12 col-md-4">
+                <p class="bg-success">Management 
+                </p>
+                </div>
+                <div class=".col-xs-12 col-md-4">
+                <p class="bg-success">Simplifier votre publication</p>
+                </div>
+                <div class=".col-xs-12 col-md-4">
+                <p class="bg-success">BLA BLA</p>
+                </div>
+            </div>
             
-            <?php /* <jdoc:include type="modules" name="position-2" style="none" /> */ ?>
-        </div>
+            <?php else: ?>
+            <div class="wrapper">
+                <jdoc:include type="message" />
+                <jdoc:include type="component" />
+                <jdoc:include type="modules" name="position-2" style="none" />
+            </div>
+             <?php endif; ?>
+        
         <?php if ($this->countModules('position-3')) : ?>
         <div id="footer" class="row">
             <div class="col-md-12" role="footer">
