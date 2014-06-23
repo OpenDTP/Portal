@@ -89,7 +89,7 @@ else
     <?php if(JRequest::getVar('view') == "featured" ) : ?>
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" >
       <div class="carousel-inner">
         <div class="item active">
           <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" >
@@ -131,6 +131,26 @@ else
                 </div>
                 <div class=".col-xs-12 col-md-4">
                 <p class="bg-success">BLA BLA</p>
+                </div>
+            </div> 
+            <hr class="featured-divider">
+            <div class="jumbotron" >
+                <div class="col-md-4">
+                Image
+                </div>
+                <div class=".col-xs-12 col-md-8">
+                <p class="bg-warning">TEXT
+                </p>
+                </div>
+            </div>
+            <hr class="featured-divider">
+            <div class="jumbotron" >
+                <div class=".col-xs-12 col-md-8">
+                <p class="bg-warning">TEXT
+                </p>
+                </div>
+                <div class="col-md-4">
+                Image
                 </div>
             </div>
             
